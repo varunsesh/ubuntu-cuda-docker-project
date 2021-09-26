@@ -139,8 +139,23 @@ RUN sudo apt install -y apt-transport-https dirmngr \
   && sudo rm -rf /var/lib/apt/lists/*
 
 
+## Getting the latest nvidia driver
+RUN mkdir /home/admin/nvidia-driver
+RUN wget -P /home/admin/nvidia-driver https://us.download.nvidia.com/XFree86/Linux-x86_64/470.74/NVIDIA-Linux-x86_64-470.74.run
+# RUN chmod +x /home/admin/nvidia-driver/NVIDIA-Linux-x86_64-470.74.run
+# RUN sudo home/admin/nvidia-driver/NVIDIA-Linux-x86_64-470.74.run --silent ##Doesn't work. Complications of trying to install in a container.
+
+##Installing Nvidia driver from apt
+RUN sudo apt update -y
+RUN sudo apt install nvidia-driver-470 -y
+##This causes nvidia-smi to not function properly. Might still do the trick
+
+
 RUN echo 'export PATH="/usr/local/cuda/bin:$PATH"' >> /home/admin/.bashrc
 RUN echo 'export LD_LIBRARY_PATH="/usr/local/cuda/lib64:$LD_LIBRARY_PATH"' >> /home/admin/.bashrc
+
+
+
 # Make SSH available
 EXPOSE 22
 
