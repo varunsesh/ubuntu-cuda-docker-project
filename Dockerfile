@@ -59,7 +59,6 @@ RUN sudo echo $TZ > /etc/timezone
 RUN sudo apt update
 RUN sudo apt install -y tzdata
 RUN sudo rm -rf /var/lib/apt/lists/*
-#RUN sudo apt update && sudo apt install -y python-pip python-dev python-pip python-virtualenv
 
 RUN sudo apt-get update && sudo apt-get install -y gnupg2
 
@@ -91,21 +90,6 @@ RUN sudo apt update -y
 RUN sudo apt-get install -y ca-certificates-mono
 
 
-
-# # Setup users and groups
-# RUN groupadd --gid ${GID} ${GROUP} \
-#   && useradd --gid ${GID} --uid ${UID} -ms ${SHELL} ${USER} \
-#   && mkdir -p /etc/sudoers.d \
-#   && echo "${USER}:x:${UID}:${UID}:${USER},,,:$HOME:${shell}" >> /etc/passwd \
-#   && echo "${USER}:x:${UID}:" >> /etc/group \
-#   && echo "${USER} ALL=(ALL) NOPASSWD: ALL" > "/etc/sudoers.d/${USER}" \
-#   && chmod 0440 "/etc/sudoers.d/${USER}"
-
-## Install terminator
-#RUN sudo apt-get install terminator \
-#  && rm -rf /var/lib/apt/lists/*   
-
-
 #Install wget
 RUN  sudo apt-get update \
   && sudo apt-get install -y wget \
@@ -116,19 +100,6 @@ RUN sudo mkdir -p /opt/unity
 RUN sudo chmod 777 /opt/unity
 RUN wget -P /opt/unity https://public-cdn.cloud.unity3d.com/hub/prod/UnityHub.AppImage 
 RUN chmod +x /opt/unity/UnityHub.AppImage
-
-
-# copy entrypoint
-#COPY entrypoint.bash /entrypoint.bash
-#RUN chmod 777 /entrypoint.bash docker build github.com/creack/docker-firefox
-
-#Install build-essential
-#RUN sudo apt install build-essential \
-#  && sudo rm -rf /var/lib/apt/lists/*
-
-
-
-
 
 
 ##Setup the keyboard properties
@@ -182,14 +153,4 @@ RUN sudo addgroup fuse
 RUN sudo apt update -y
 RUN sudo apt install -y git
 
-##Install snap in docker container??
-#RUN sudo apt update -y
-#RUN sudo apt install -y snap
-#RUN sudo snap install cmake --classic
-#RUN sudo snap install code --classic
-
 CMD /bin/bash
-#ENTRYPOINT ["/entrypoint.bash", "terminator"]
-## Pending operations: write a script to pull code from repository
-## Install cmake and leave behind a readme file
-## Install Unity Hub
