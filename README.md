@@ -9,6 +9,7 @@ The docker image uses the nvidia-container as the base image. The drawback of th
 
 ## Docker Installation
 1. Before installing docker, first setup the repository using
+```
     $ sudo apt-get update \
         apt-transport-https \
         ca-certificates \
@@ -22,19 +23,22 @@ The docker image uses the nvidia-container as the base image. The drawback of th
             $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
     $ sudo apt-get update
     $ sudo apt-get install docker-ce docker-ce-cli containerd.io
-
+```
 2. To run docker without being root:
     $ sudo usermod -aG docker $USER
 
 
 ## Using the docker file
 1. Once docker is successfully installed first build the docker image.
+```   
     $ ./build-docker-image.bash
+```
 This will take a few moments to complete. 
 
 2. Once the image is built launch the container:
+```   
     $ ./run-docker-container.bash
-
+```
 ## Notes
 1. The default username in the docker container is admin and has all sudo privelages. No password is required for sudo commands.
 
