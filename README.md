@@ -3,14 +3,17 @@
 This project aims to create a docker image of Ubuntu 20.04 with all the necessary software and drivers required for high performance computing. The following is the software spec of the container:
 
 1. Ubuntu 20.04
-2. Cuda 11.4 
+2. Cuda compiler 11.4 
+3. Nvidia graphics driver: borrowed from the host machine
+4. Unity Hub - 2.4.2
+5. cmake - 3.21
 
 The docker image uses the nvidia-container as the base image. The drawback of this approach is the docker container exposes the driver installed on the base/host machine to the docker container. The result being that the correct driver version for the cuda toolkit must be installed on the base/host machine before using the toolkit in the container.
 
 
 
 ## Docker Installation
-1. Before installing docker, first setup the repository using
+1. Before installing docker, setup the repository using
 ```
     $ sudo apt-get update \
         apt-transport-https \
