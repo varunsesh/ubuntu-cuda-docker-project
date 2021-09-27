@@ -49,3 +49,8 @@ This will take a few moments to complete.
 1. Snap store isn't available in a docker environment. There are workarounds but they have not been implemented at this point. 
 2. Burning the entire docker image to a bootable disk.
 
+## References
+1. https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/user-guide.html
+2. https://ngc.nvidia.com/catalog/containers/nvidia:cuda
+3. https://linuxtut.com/en/e6269ff0730b3ab29809/
+4. https://docs.docker.com/engine/install/ubuntu/ 
