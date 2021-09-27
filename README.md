@@ -27,8 +27,9 @@ The docker image uses the nvidia-container as the base image. The drawback of th
     $ sudo apt-get install docker-ce docker-ce-cli containerd.io
 ```
 2. To run docker without being root:
+ ```   
     $ sudo usermod -aG docker $USER
-
+```
 
 ## Using the docker file
 1. Once docker is successfully installed first build the docker image.
