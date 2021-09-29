@@ -15,7 +15,7 @@ The docker image uses the nvidia-container as the base image. The drawback of th
 ## Docker Installation
 1. Before installing docker, setup the repository using
 ```
-    $ sudo apt-get update \
+    $ sudo apt-get install \
         apt-transport-https \
         ca-certificates \
         curl \
@@ -35,7 +35,7 @@ The docker image uses the nvidia-container as the base image. The drawback of th
 ```
 
 ## Using the docker file
-1. Once docker is successfully installed first build the docker image.
+1. Once docker is successfully installed, build the docker image.
 ```   
     $ ./build-docker-image.bash
 ```
