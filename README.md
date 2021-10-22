@@ -46,7 +46,7 @@ This will take a few moments to complete.
     $ ./run-docker-container.bash
 ```
 ## Notes
-1. The default username in the docker container is admin and has all sudo privelages. No password is required for sudo commands.
+1. The default username in the docker container is admin and has all sudo privileges. No password is required for sudo commands.
 
 
 ## TO DO
